@@ -13,6 +13,23 @@ export const metadata: Metadata = {
   title: "ROBATO — Premium Learning for Elementary Students",
   description:
     "ROBATO is a premium learning companion for elementary students, combining expert curriculum, adaptive tools, and the joy of discovery.",
+  openGraph: {
+    title: "ROBATO — Premium Learning for Elementary Students",
+    description:
+      "A premium learning companion for elementary students — expert curriculum, adaptive tools, and the joy of discovery.",
+    type: "website",
+    locale: "en_US",
+    siteName: "ROBATO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ROBATO — Premium Learning for Elementary Students",
+    description:
+      "A premium learning companion for elementary students — expert curriculum, adaptive tools, and the joy of discovery.",
+  },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-robato.vercel.app"
+  ),
 };
 
 export default function RootLayout({
