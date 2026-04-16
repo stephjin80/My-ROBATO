@@ -10,30 +10,31 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-100">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-xl border-b border-cream-100">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-2xl font-bold tracking-tight text-stone-900">
+        <Link href="/" className="flex items-center gap-1.5 group">
+          <span className="text-xl font-black tracking-tighter text-stone-900">
             ROBATO
           </span>
-          <span className="text-xs font-medium text-indigo-500 uppercase tracking-widest mt-0.5">
+          <span className="text-[10px] font-bold text-mint-500 uppercase tracking-[0.15em] mt-0.5 bg-mint-50 px-1.5 py-0.5 rounded-full">
             Learn
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden md:flex items-center gap-0.5">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 ${
                     isActive
-                      ? "text-stone-900 bg-stone-100"
-                      : "text-stone-500 hover:text-stone-900 hover:bg-stone-50"
+                      ? "text-stone-900 bg-white shadow-sm"
+                      : "text-stone-500 hover:text-stone-800 hover:bg-white/60"
                   }`}
                 >
                   {item.label}
@@ -43,17 +44,17 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* CTA */}
+        {/* CTAs */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/contact"
-            className="px-4 py-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+            className="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors"
           >
             Sign in
           </Link>
           <Link
             href="/programs"
-            className="px-5 py-2 text-sm font-semibold text-white bg-stone-900 rounded-full hover:bg-stone-700 transition-colors"
+            className="px-5 py-2 text-sm font-semibold text-white bg-mint-500 rounded-full hover:bg-mint-600 transition-colors shadow-sm shadow-mint-200"
           >
             Get started
           </Link>
@@ -61,28 +62,28 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-stone-600 hover:bg-stone-100"
+          className="md:hidden p-2 rounded-lg text-stone-600 hover:bg-white/60"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          <span className="block w-5 h-0.5 bg-current mb-1" />
-          <span className="block w-5 h-0.5 bg-current mb-1" />
-          <span className="block w-5 h-0.5 bg-current" />
+          <span className="block w-5 h-0.5 bg-current mb-1.5 rounded-full" />
+          <span className="block w-5 h-0.5 bg-current mb-1.5 rounded-full" />
+          <span className="block w-5 h-0.5 bg-current rounded-full" />
         </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-stone-100 px-6 py-4 flex flex-col gap-2">
+        <div className="md:hidden bg-cream/95 backdrop-blur-xl border-t border-cream-100 px-6 py-4 flex flex-col gap-1.5">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium ${
+              className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                 pathname === item.href
-                  ? "bg-stone-100 text-stone-900"
-                  : "text-stone-600 hover:bg-stone-50"
+                  ? "bg-white text-stone-900 shadow-sm"
+                  : "text-stone-600 hover:bg-white/60"
               }`}
             >
               {item.label}
@@ -91,7 +92,7 @@ export default function Navbar() {
           <Link
             href="/programs"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-4 py-2.5 text-sm font-semibold text-white bg-stone-900 rounded-xl text-center"
+            className="mt-2 px-4 py-2.5 text-sm font-semibold text-white bg-mint-500 rounded-xl text-center"
           >
             Get started
           </Link>
