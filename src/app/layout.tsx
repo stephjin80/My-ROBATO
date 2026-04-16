@@ -10,22 +10,22 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "ROBATO — Premium Learning for Elementary Students",
+  title: "My ROBATO — The Personalized Learning Companion for Children",
   description:
-    "ROBATO is a premium learning companion for elementary students, combining expert curriculum, adaptive tools, and the joy of discovery.",
+    "My ROBATO is a personalized AI learning companion for children that combines adaptive curriculum, story-driven exploration, and emotional companionship into one evolving experience.",
   openGraph: {
-    title: "ROBATO — Premium Learning for Elementary Students",
+    title: "My ROBATO — The Personalized Learning Companion for Children",
     description:
-      "A premium learning companion for elementary students — expert curriculum, adaptive tools, and the joy of discovery.",
+      "Adaptive curriculum, immersive storytelling, and an AI companion that grows alongside your child.",
     type: "website",
     locale: "en_US",
-    siteName: "ROBATO",
+    siteName: "My ROBATO",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ROBATO — Premium Learning for Elementary Students",
+    title: "My ROBATO — The Personalized Learning Companion for Children",
     description:
-      "A premium learning companion for elementary students — expert curriculum, adaptive tools, and the joy of discovery.",
+      "Adaptive curriculum, immersive storytelling, and an AI companion that grows alongside your child.",
   },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-robato.vercel.app"
@@ -39,9 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-stone-50 text-stone-900 font-sans">
+      <body className="min-h-full flex flex-col bg-cream text-stone-900 font-sans">
         <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

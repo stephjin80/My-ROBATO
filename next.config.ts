@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      { source: "/about",    destination: "/about-robato",     permanent: true },
+      { source: "/programs", destination: "/inside-my-robato", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

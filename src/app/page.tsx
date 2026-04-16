@@ -1,19 +1,21 @@
-import Hero from "@/components/sections/Hero";
-import StatsBar from "@/components/sections/StatsBar";
-import ValueProps from "@/components/sections/ValueProps";
-import FeaturedPrograms from "@/components/sections/FeaturedPrograms";
-import Testimonials from "@/components/sections/Testimonials";
-import CallToAction from "@/components/sections/CallToAction";
+import HomeHero         from "@/components/home/HomeHero";
+import WhatIsMyRobato   from "@/components/home/WhatIsMyRobato";
+import FoundationalYears from "@/components/home/FoundationalYears";
+import EducationProblem  from "@/components/home/EducationProblem";
+import SolutionPillars   from "@/components/home/SolutionPillars";
+import LayeredSystem     from "@/components/home/LayeredSystem";
+import HomeCTA           from "@/components/home/HomeCTA";
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <StatsBar />
-      <ValueProps />
-      <FeaturedPrograms />
-      <Testimonials />
-      <CallToAction />
+      <HomeHero />
+      <WhatIsMyRobato />
+      <FoundationalYears />
+      <EducationProblem />
+      <SolutionPillars />
+      <LayeredSystem />
+      <HomeCTA />
     </>
   );
 }

@@ -9,32 +9,41 @@ export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const isOnDark = pathname === "/" || pathname === "/how-it-works";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-xl border-b border-cream-100">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-colors duration-300 ${
+        isOnDark
+          ? "bg-navy-950/80 border-white/5"
+          : "bg-cream/80 border-cream-100"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 h-15 flex items-center justify-between gap-6">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1.5 group">
-          <span className="text-xl font-black tracking-tighter text-stone-900">
-            ROBATO
-          </span>
-          <span className="text-[10px] font-bold text-mint-500 uppercase tracking-[0.15em] mt-0.5 bg-mint-50 px-1.5 py-0.5 rounded-full">
-            Learn
+        <Link href="/" className="flex items-center gap-1.5 flex-shrink-0">
+          <span className={`text-lg font-black tracking-tighter ${isOnDark ? "text-white" : "text-stone-900"}`}>
+            My ROBATO
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-0.5">
+        <ul className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-150 ${
-                    isActive
+                  className={`px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-150 whitespace-nowrap ${
+                    isOnDark
+                      ? isActive
+                        ? "text-white bg-white/10"
+                        : "text-white/50 hover:text-white hover:bg-white/8"
+                      : isActive
                       ? "text-stone-900 bg-white shadow-sm"
-                      : "text-stone-500 hover:text-stone-800 hover:bg-white/60"
+                      : "text-stone-500 hover:text-stone-800 hover:bg-white/70"
                   }`}
                 >
                   {item.label}
@@ -44,17 +53,19 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* CTAs */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* CTA */}
+        <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <Link
             href="/contact"
-            className="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors"
+            className={`text-[13px] font-medium transition-colors ${
+              isOnDark ? "text-white/50 hover:text-white" : "text-stone-500 hover:text-stone-900"
+            }`}
           >
             Sign in
           </Link>
           <Link
-            href="/programs"
-            className="px-5 py-2 text-sm font-semibold text-white bg-mint-500 rounded-full hover:bg-mint-600 transition-colors shadow-sm shadow-mint-200"
+            href="/inside-my-robato"
+            className="px-4 py-1.5 text-[13px] font-bold text-white bg-mint-500 rounded-full hover:bg-mint-600 transition-colors shadow-sm"
           >
             Get started
           </Link>
@@ -62,7 +73,9 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-stone-600 hover:bg-white/60"
+          className={`lg:hidden p-2 rounded-lg transition-colors ${
+            isOnDark ? "text-white/60 hover:bg-white/10" : "text-stone-600 hover:bg-white/60"
+          }`}
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -74,7 +87,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-cream/95 backdrop-blur-xl border-t border-cream-100 px-6 py-4 flex flex-col gap-1.5">
+        <div
+          className={`lg:hidden border-t px-6 py-4 flex flex-col gap-1 ${
+            isOnDark
+              ? "bg-navy-900/95 border-white/5"
+              : "bg-cream/95 border-cream-100"
+          }`}
+        >
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -82,7 +101,11 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                 pathname === item.href
-                  ? "bg-white text-stone-900 shadow-sm"
+                  ? isOnDark
+                    ? "bg-white/10 text-white"
+                    : "bg-white text-stone-900 shadow-sm"
+                  : isOnDark
+                  ? "text-white/60 hover:bg-white/5"
                   : "text-stone-600 hover:bg-white/60"
               }`}
             >
@@ -90,9 +113,9 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/programs"
+            href="/inside-my-robato"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 px-4 py-2.5 text-sm font-semibold text-white bg-mint-500 rounded-xl text-center"
+            className="mt-2 px-4 py-2.5 text-sm font-bold text-white bg-mint-500 rounded-xl text-center"
           >
             Get started
           </Link>

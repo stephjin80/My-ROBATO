@@ -11,25 +11,43 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* ROBATO brand palette — sourced from the character's colors */
+  /* ── Mint (ROBATO visor / teal) ── */
   --color-mint-50:  #F0FAF9;
   --color-mint-100: #D8F2EF;
   --color-mint-200: #B1E5DF;
   --color-mint-300: #8DD8D0;
-  --color-mint-400: #6ECAC1;   /* character visor */
-  --color-mint-500: #4EB8AE;   /* primary accent */
+  --color-mint-400: #6ECAC1;
+  --color-mint-500: #4EB8AE;
   --color-mint-600: #3A9E95;
   --color-mint-700: #2D8079;
 
+  /* ── Coral (ROBATO heart badge) ── */
   --color-coral-50:  #FEF3F0;
   --color-coral-100: #FDE0D7;
   --color-coral-200: #FAC1AF;
-  --color-coral-300: #F7A28C;  /* heart badge light */
-  --color-coral-400: #F2816A;  /* heart badge */
+  --color-coral-300: #F7A28C;
+  --color-coral-400: #F2816A;
   --color-coral-500: #E5624A;
 
-  --color-cream:     #FAF7EE;  /* character background */
+  /* ── Gold (warm premium accent) ── */
+  --color-gold-50:  #FFFBEB;
+  --color-gold-100: #FEF3C7;
+  --color-gold-200: #FDE68A;
+  --color-gold-300: #F9C940;
+  --color-gold-400: #F0B429;
+  --color-gold-500: #D69E2E;
+
+  /* ── Navy (cinematic dark backgrounds) ── */
+  --color-navy-950: #070F1F;
+  --color-navy-900: #0D1B35;
+  --color-navy-800: #132040;
+  --color-navy-700: #1A2F55;
+  --color-navy-600: #253F6E;
+
+  /* ── Cream (warm neutral) ── */
+  --color-cream:     #FAF7EE;
   --color-cream-100: #F4EED8;
+  --color-cream-200: #EDE4C6;
 }
 
 body {
